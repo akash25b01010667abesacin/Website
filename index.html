@@ -35,79 +35,80 @@
     <main>
       <section class="hero container">
         <div class="hero-copy">
-          <p class="eyebrow">Big savings • Fast delivery • Trusted quality</p>
-          <h1>Shop smarter with Chourasia E-Commerce</h1>
+          <p class="eyebrow">Wholesale deals • Bulk orders • Decor ready</p>
+          <h1>Birthday and anniversary decor made easy</h1>
           <p class="hero-text">
-            Discover trending electronics, fashion, home essentials, and daily deals in one place.
+            Shop premium balloons, backdrops, candles, and party essentials for birthdays and anniversaries at wholesale pricing.
           </p>
           <div class="hero-actions">
-            <a href="#offers" class="btn btn-primary">Explore deals</a>
+            <a href="#offers" class="btn btn-primary">Explore decor deals</a>
             <a href="#categories" class="btn btn-secondary">Browse categories</a>
           </div>
           <ul class="hero-badges">
-            <li>Free delivery above ₹499</li>
-            <li>Easy returns</li>
-            <li>24/7 support</li>
+            <li>Bulk pricing available</li>
+            <li>Same-day dispatch</li>
+            <li>Custom party styling</li>
           </ul>
         </div>
 
         <div class="hero-card">
-          <p class="card-tag">Limited offer</p>
-          <h3>Festival combo pack</h3>
-          <p>Save up to 60% on phones, smart TVs, and home appliances.</p>
-          <button class="btn btn-primary btn-full" data-product="Festival Combo">Add to cart</button>
+          <p class="card-tag">Hot deal</p>
+          <h3>Birthday Deluxe Kit</h3>
+          <p>Get balloons, ribbons, and a photo backdrop for your next celebration.</p>
+          <button class="btn btn-primary btn-full" data-product="Birthday Deluxe Kit">Add to cart</button>
         </div>
       </section>
 
       <section id="categories" class="section container">
         <div class="section-heading">
-          <h2>Popular categories</h2>
+          <h2>Popular decor categories</h2>
           <a href="#">See all</a>
         </div>
         <div class="category-grid">
-          <div class="category-pill">Mobiles</div>
-          <div class="category-pill">Electronics</div>
-          <div class="category-pill">Fashion</div>
-          <div class="category-pill">Home</div>
-          <div class="category-pill">Beauty</div>
-          <div class="category-pill">Groceries</div>
+          <button class="category-pill active" data-category="Balloons">Balloons</button>
+          <button class="category-pill" data-category="Backdrops">Backdrops</button>
+          <button class="category-pill" data-category="Candles">Candles</button>
+          <button class="category-pill" data-category="Banners">Banners</button>
+          <button class="category-pill" data-category="Table Decor">Table Decor</button>
+          <button class="category-pill" data-category="Anniversary Sets">Anniversary Sets</button>
         </div>
+        <div id="category-showcase" class="showcase-grid"></div>
       </section>
 
       <section id="offers" class="section section-dark">
         <div class="container">
           <div class="section-heading">
-            <h2>Deals of the day</h2>
+            <h2>Wholesale decor collection</h2>
             <a href="#">View more</a>
           </div>
           <div class="product-grid">
             <article class="product-card">
-              <div class="product-visual purple">📱</div>
-              <h3>Smartphone</h3>
-              <p>Flagship performance with premium camera features.</p>
+              <div class="product-visual purple">🎈</div>
+              <h3>Birthday Balloon Pack</h3>
+              <p>Premium balloons in pastel and metallic shades for party walls and ceilings.</p>
               <div class="product-footer">
-                <strong>₹24,999</strong>
-                <button class="btn btn-primary" data-product="Smartphone">Add to cart</button>
+                <strong>Wholesale ₹899</strong>
+                <button class="btn btn-primary" data-product="Balloon Pack">Add to cart</button>
               </div>
             </article>
 
             <article class="product-card">
-              <div class="product-visual blue">🎧</div>
-              <h3>Noise Headphones</h3>
-              <p>Immersive sound with all-day comfort.</p>
+              <div class="product-visual blue">📸</div>
+              <h3>Backdrop Kit</h3>
+              <p>Stylish photo booth backdrop with flowers, lights, and a matching frame.</p>
               <div class="product-footer">
-                <strong>₹1,799</strong>
-                <button class="btn btn-primary" data-product="Headphones">Add to cart</button>
+                <strong>Wholesale ₹1,499</strong>
+                <button class="btn btn-primary" data-product="Backdrop Kit">Add to cart</button>
               </div>
             </article>
 
             <article class="product-card">
-              <div class="product-visual yellow">🪑</div>
-              <h3>Ergonomic Chair</h3>
-              <p>Comfort for long workdays and relaxed gaming.</p>
+              <div class="product-visual yellow">🕯️</div>
+              <h3>Anniversary Candle Set</h3>
+              <p>Elegant candles and fairy lights for romantic dining and celebration corners.</p>
               <div class="product-footer">
-                <strong>₹5,499</strong>
-                <button class="btn btn-primary" data-product="Ergonomic Chair">Add to cart</button>
+                <strong>Wholesale ₹749</strong>
+                <button class="btn btn-primary" data-product="Candle Set">Add to cart</button>
               </div>
             </article>
           </div>
@@ -116,21 +117,40 @@
 
       <section class="section container" id="cart">
         <div class="section-heading">
-          <h2>Why shoppers love us</h2>
+          <h2>Why party planners choose us</h2>
           <a href="#">Learn more</a>
         </div>
         <div class="benefits-grid">
           <div class="benefit-card">
-            <h3>Secure payments</h3>
-            <p>Fast and trusted payment options for every order.</p>
+            <h3>Wholesale pricing</h3>
+            <p>Great rates for retailers, event managers, and large family celebrations.</p>
           </div>
           <div class="benefit-card">
-            <h3>Free exchange</h3>
-            <p>Simple returns and exchanges on eligible items.</p>
+            <h3>Ready for events</h3>
+            <p>Everything is packed and styled for birthday and anniversary setups.</p>
           </div>
           <div class="benefit-card">
-            <h3>Express delivery</h3>
-            <p>Get your favorite products at your doorstep quickly.</p>
+            <h3>Fast dispatch</h3>
+            <p>Quick delivery for last-minute party planning and bulk orders.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="payment" class="section container">
+        <div class="section-heading">
+          <h2>Choose a payment method</h2>
+          <a href="#">Secure checkout</a>
+        </div>
+        <div class="payment-grid">
+          <div class="payment-card">
+            <h3>Cash on Delivery</h3>
+            <p>Pay when your package arrives. Perfect for easy and trusted shopping.</p>
+            <button class="btn btn-secondary payment-btn" data-payment="COD">Select COD</button>
+          </div>
+          <div class="payment-card">
+            <h3>UPI / Wallets</h3>
+            <p>Use Google Pay, PhonePe, Paytm, or any UPI app for instant checkout.</p>
+            <button class="btn btn-primary payment-btn" data-payment="UPI">Select UPI</button>
           </div>
         </div>
       </section>
