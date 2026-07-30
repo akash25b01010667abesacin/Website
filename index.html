@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chourasia E-Commerce</title>
+    <meta
+      name="description"
+      content="Chourasia E-Commerce is a modern Flipkart-inspired shopping experience with exciting deals and a smart cart."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav-shell container">
+        <a href="#" class="logo">Chourasia <span>Commerce</span></a>
+        <div class="search-bar">
+          <span>🔍</span>
+          <input type="text" placeholder="Search for products, brands and more" />
+        </div>
+        <div class="nav-actions">
+          <a href="#">Login</a>
+          <a href="#offers">Offers</a>
+          <a href="#cart">Cart <span id="cart-count">0</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <div class="hero-copy">
+          <p class="eyebrow">Big savings • Fast delivery • Trusted quality</p>
+          <h1>Shop smarter with Chourasia E-Commerce</h1>
+          <p class="hero-text">
+            Discover trending electronics, fashion, home essentials, and daily deals in one place.
+          </p>
+          <div class="hero-actions">
+            <a href="#offers" class="btn btn-primary">Explore deals</a>
+            <a href="#categories" class="btn btn-secondary">Browse categories</a>
+          </div>
+          <ul class="hero-badges">
+            <li>Free delivery above ₹499</li>
+            <li>Easy returns</li>
+            <li>24/7 support</li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <p class="card-tag">Limited offer</p>
+          <h3>Festival combo pack</h3>
+          <p>Save up to 60% on phones, smart TVs, and home appliances.</p>
+          <button class="btn btn-primary btn-full" data-product="Festival Combo">Add to cart</button>
+        </div>
+      </section>
+
+      <section id="categories" class="section container">
+        <div class="section-heading">
+          <h2>Popular categories</h2>
+          <a href="#">See all</a>
+        </div>
+        <div class="category-grid">
+          <div class="category-pill">Mobiles</div>
+          <div class="category-pill">Electronics</div>
+          <div class="category-pill">Fashion</div>
+          <div class="category-pill">Home</div>
+          <div class="category-pill">Beauty</div>
+          <div class="category-pill">Groceries</div>
+        </div>
+      </section>
+
+      <section id="offers" class="section section-dark">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Deals of the day</h2>
+            <a href="#">View more</a>
+          </div>
+          <div class="product-grid">
+            <article class="product-card">
+              <div class="product-visual purple">📱</div>
+              <h3>Smartphone</h3>
+              <p>Flagship performance with premium camera features.</p>
+              <div class="product-footer">
+                <strong>₹24,999</strong>
+                <button class="btn btn-primary" data-product="Smartphone">Add to cart</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-visual blue">🎧</div>
+              <h3>Noise Headphones</h3>
+              <p>Immersive sound with all-day comfort.</p>
+              <div class="product-footer">
+                <strong>₹1,799</strong>
+                <button class="btn btn-primary" data-product="Headphones">Add to cart</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-visual yellow">🪑</div>
+              <h3>Ergonomic Chair</h3>
+              <p>Comfort for long workdays and relaxed gaming.</p>
+              <div class="product-footer">
+                <strong>₹5,499</strong>
+                <button class="btn btn-primary" data-product="Ergonomic Chair">Add to cart</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container" id="cart">
+        <div class="section-heading">
+          <h2>Why shoppers love us</h2>
+          <a href="#">Learn more</a>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <h3>Secure payments</h3>
+            <p>Fast and trusted payment options for every order.</p>
+          </div>
+          <div class="benefit-card">
+            <h3>Free exchange</h3>
+            <p>Simple returns and exchanges on eligible items.</p>
+          </div>
+          <div class="benefit-card">
+            <h3>Express delivery</h3>
+            <p>Get your favorite products at your doorstep quickly.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <p>© <span id="year"></span> Chourasia Commerce. All rights reserved.</p>
+        <a href="#">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

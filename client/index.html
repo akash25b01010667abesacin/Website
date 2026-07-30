@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix Commerce</title>
+    <meta
+      name="description"
+      content="A modern Netflix-inspired e-commerce landing page for streaming plans and merch."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav container">
+        <a href="#" class="brand">NETFLIX<span>SHOP</span></a>
+        <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+        <div class="nav-links">
+          <a href="#plans">Plans</a>
+          <a href="#merch">Merch</a>
+          <a href="#faq">FAQ</a>
+          <a href="#cart" class="cart-link">Cart <span id="cart-count">0</span></a>
+        </div>
+      </nav>
+
+      <div class="hero-content container">
+        <div>
+          <p class="eyebrow">Unlimited binge, premium perks, collector gear</p>
+          <h1>Watch more. Wear more. Own the vibe.</h1>
+          <p class="hero-text">
+            Discover premium streaming bundles, sleek accessories, and limited drops made for true fans.
+          </p>
+          <div class="hero-actions">
+            <a href="#plans" class="btn btn-primary">Choose a plan</a>
+            <a href="#merch" class="btn btn-secondary">Shop merch</a>
+          </div>
+          <ul class="hero-badges">
+            <li>4K streaming</li>
+            <li>Free shipping</li>
+            <li>Exclusive drops</li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <span>New season</span>
+            <strong>50% OFF</strong>
+          </div>
+          <h3>Fan bundle</h3>
+          <p>Streaming + hoodie + snack set for your next marathon night.</p>
+          <button class="btn btn-primary btn-full" data-product="Fan Bundle">Add to cart</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="stats container">
+        <div>
+          <strong>2.4M+</strong>
+          <span>happy members</span>
+        </div>
+        <div>
+          <strong>24/7</strong>
+          <span>collector support</span>
+        </div>
+        <div>
+          <strong>100%</strong>
+          <span>exclusive merch</span>
+        </div>
+      </section>
+
+      <section id="plans" class="section container">
+        <div class="section-heading">
+          <p class="eyebrow">Subscription plans</p>
+          <h2>Pick your perfect viewing experience</h2>
+        </div>
+
+        <div class="card-grid">
+          <article class="plan-card">
+            <h3>Basic</h3>
+            <p class="price">$9<span>/mo</span></p>
+            <ul>
+              <li>HD streaming</li>
+              <li>1 device</li>
+              <li>Offline downloads</li>
+            </ul>
+            <button class="btn btn-secondary btn-full" data-product="Basic Plan">Get started</button>
+          </article>
+
+          <article class="plan-card featured">
+            <div class="badge">Most popular</div>
+            <h3>Premium</h3>
+            <p class="price">$16<span>/mo</span></p>
+            <ul>
+              <li>4K Ultra HD</li>
+              <li>4 devices</li>
+              <li>Early access drops</li>
+            </ul>
+            <button class="btn btn-primary btn-full" data-product="Premium Plan">Choose Premium</button>
+          </article>
+
+          <article class="plan-card">
+            <h3>Family</h3>
+            <p class="price">$22<span>/mo</span></p>
+            <ul>
+              <li>6 profiles</li>
+              <li>Ultra HD on all screens</li>
+              <li>Merch discount</li>
+            </ul>
+            <button class="btn btn-secondary btn-full" data-product="Family Plan">Join family</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="merch" class="section section-dark">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Limited merch</p>
+            <h2>Gear up for your next binge marathon</h2>
+          </div>
+
+          <div class="card-grid merch-grid">
+            <article class="product-card">
+              <div class="product-visual red"></div>
+              <h3>Binge Hoodie</h3>
+              <p>Cozy comfort with a bold midnight finish.</p>
+              <div class="product-footer">
+                <strong>$49</strong>
+                <button class="btn btn-primary" data-product="Binge Hoodie">Add to cart</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-visual blue"></div>
+              <h3>Stream Light</h3>
+              <p>Ambient glow for late-night movie sessions.</p>
+              <div class="product-footer">
+                <strong>$29</strong>
+                <button class="btn btn-primary" data-product="Stream Light">Add to cart</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-visual purple"></div>
+              <h3>Marathon Snack Box</h3>
+              <p>Curated treats and branded goodies for every episode.</p>
+              <div class="product-footer">
+                <strong>$18</strong>
+                <button class="btn btn-primary" data-product="Snack Box">Add to cart</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section container">
+        <div class="section-heading">
+          <p class="eyebrow">Frequently asked questions</p>
+          <h2>Everything you need to know</h2>
+        </div>
+
+        <div class="faq-list">
+          <details open>
+            <summary>Can I switch plans anytime?</summary>
+            <p>Yes, you can upgrade or downgrade whenever you want with no hassle.</p>
+          </details>
+          <details>
+            <summary>Do you ship worldwide?</summary>
+            <p>We ship to most countries with fast delivery and tracking updates.</p>
+          </details>
+          <details>
+            <summary>Is merch included with subscriptions?</summary>
+            <p>Members get exclusive access to limited drops and special discounts.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <p>© <span id="year"></span> Netflix Shop. All rights reserved.</p>
+        <a href="#">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
