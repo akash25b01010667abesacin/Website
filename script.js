@@ -265,6 +265,13 @@ async function loadProducts() {
 
     const categories = await categoriesResponse.json();
     allProducts = await productsResponse.json();
+
+    if (!Array.isArray(categories) || !categories.length || !Array.isArray(allProducts) || !allProducts.length) {
+      console.warn('API returned no products or categories; falling back to static catalog');
+      useFallbackCatalog();
+      return;
+    }
+
     renderCategories(['All', ...categories]);
     renderProducts();
 
