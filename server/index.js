@@ -11,11 +11,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(staticRoot));
 
-const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
+const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
   if (err) {
     console.error('Unable to open database:', err.message);
     process.exit(1);
   }
+  initializeDatabase();
 });
 
 const productsSeed = [
@@ -39,6 +40,50 @@ const productsSeed = [
   { name: 'Love Letter Decor Box', category: 'Anniversary Sets', description: 'A charming setup with hearts, lights, and elegant textures.', price: 849, emoji: '💌' }
 ];
 
+function initializeDatabase() {
+  const createTables = `
+    CREATE TABLE IF NOT EXISTS users (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      email TEXT UNIQUE NOT NULL,
+      password TEXT NOT NULL,
+      name TEXT NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS products (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      category TEXT NOT NULL,
+      description TEXT NOT NULL,
+      price INTEGER NOT NULL,
+      emoji TEXT NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS orders (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER,
+      payment_method TEXT NOT NULL,
+      total INTEGER NOT NULL,
+      created_at TEXT NOT NULL,
+      FOREIGN KEY (user_id) REFERENCES users(id)
+    );
+    CREATE TABLE IF NOT EXISTS order_items (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      order_id INTEGER NOT NULL,
+      product_id INTEGER NOT NULL,
+      quantity INTEGER NOT NULL,
+      price INTEGER NOT NULL,
+      FOREIGN KEY (order_id) REFERENCES orders(id),
+      FOREIGN KEY (product_id) REFERENCES products(id)
+    );
+  `;
+
+  db.exec(createTables, (err) => {
+    if (err) {
+      console.error('Unable to initialize database schema:', err.message);
+      process.exit(1);
+    }
+    seedProductsIfNeeded();
+  });
+}
+
 function seedProductsIfNeeded() {
   db.get('SELECT COUNT(*) AS count FROM products', (err, row) => {
     if (err) {
@@ -58,8 +103,6 @@ function seedProductsIfNeeded() {
     console.log('Seeded products into database.');
   });
 }
-
-seedProductsIfNeeded();
 
 app.get('/api/products', (req, res) => {
   db.all('SELECT * FROM products ORDER BY category, name', (err, rows) => {
