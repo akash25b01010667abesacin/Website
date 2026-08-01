@@ -23,21 +23,34 @@ const productsSeed = [
   { name: 'Metallic Balloon Bundle', category: 'Balloons', description: 'Shiny balloon set for party ceilings and entrance decor.', price: 399, emoji: '🎈' },
   { name: 'Heart Balloon Arch', category: 'Balloons', description: 'Perfect for birthday photo corners and anniversary celebrations.', price: 699, emoji: '💖' },
   { name: 'Kids Comic Balloon Box', category: 'Balloons', description: 'Colourful and playful for children’s birthday setups.', price: 549, emoji: '🧸' },
+  { name: 'Confetti Balloon Set', category: 'Balloons', description: 'A bright assortment of confetti-filled balloons for birthdays.', price: 479, emoji: '🎊' },
+  { name: 'Balloon Garland Kit', category: 'Balloons', description: 'Easy-to-build balloon garland for anniversaries and party decor.', price: 639, emoji: '🎀' },
   { name: 'Floral Wall Backdrop', category: 'Backdrops', description: 'Elegant flower wall for memorable birthday and anniversary photos.', price: 1199, emoji: '🌸' },
   { name: 'Glow Light Backdrop', category: 'Backdrops', description: 'Warm lights and soft texture for evening celebrations.', price: 1499, emoji: '✨' },
   { name: 'Custom Name Backdrop', category: 'Backdrops', description: 'Personalized backdrop for birthdays and milestone anniversaries.', price: 1299, emoji: '🖼️' },
+  { name: 'Anniversary Rose Garland', category: 'Backdrops', description: 'Romantic rose garland backdrop for anniversary photo moments.', price: 1099, emoji: '🌹' },
   { name: 'Rose Candle Set', category: 'Candles', description: 'Romantic candle arrangement for anniversaries and dinner decor.', price: 449, emoji: '🕯️' },
   { name: 'Number Candles', category: 'Candles', description: 'Bright and festive candles for birthday age themes.', price: 299, emoji: '🔢' },
   { name: 'Fairy Light Candles', category: 'Candles', description: 'Soft glowing candles for evening party tables.', price: 379, emoji: '🌟' },
+  { name: 'Sparkler Candle Kit', category: 'Candles', description: 'Sparkling candle tops for birthday cake celebrations.', price: 329, emoji: '🧨' },
   { name: 'Happy Birthday Banner', category: 'Banners', description: 'Bold lettering banner for birthday parties and entryways.', price: 349, emoji: '🎉' },
   { name: 'Anniversary Celebration Banner', category: 'Banners', description: 'Stylish banner for milestone anniversary events.', price: 399, emoji: '💞' },
   { name: 'Custom Name Banner', category: 'Banners', description: 'Perfect for themed parties and special age celebrations.', price: 429, emoji: '🪧' },
+  { name: 'Love Script Banner', category: 'Banners', description: 'Elegant anniversary banner with cursive lettering.', price: 459, emoji: '💕' },
   { name: 'Centerpiece Flower Box', category: 'Table Decor', description: 'Elegant table setup for home parties and banquet tables.', price: 599, emoji: '💐' },
   { name: 'Cake Table Runner', category: 'Table Decor', description: 'Decorative runner for cake display and dessert corners.', price: 329, emoji: '🍰' },
   { name: 'Mini Table Lights', category: 'Table Decor', description: 'Soft decorative lights to brighten celebration tables.', price: 279, emoji: '💡' },
+  { name: 'Milestone Number Stand', category: 'Table Decor', description: 'Stylish number display for birthday and anniversary milestones.', price: 499, emoji: '🔢' },
   { name: 'Romantic Dinner Set', category: 'Anniversary Sets', description: 'Decor bundle with candles, flowers, and table accents.', price: 999, emoji: '🥂' },
   { name: 'Golden Anniversary Pack', category: 'Anniversary Sets', description: 'Premium decor pieces for milestone anniversary themes.', price: 1249, emoji: '🥇' },
-  { name: 'Love Letter Decor Box', category: 'Anniversary Sets', description: 'A charming setup with hearts, lights, and elegant textures.', price: 849, emoji: '💌' }
+  { name: 'Love Letter Decor Box', category: 'Anniversary Sets', description: 'A charming setup with hearts, lights, and elegant textures.', price: 849, emoji: '💌' },
+  { name: 'Anniversary Champagne Toast Set', category: 'Anniversary Sets', description: 'Decorative glassware and accents for anniversary celebrations.', price: 1099, emoji: '🍾' },
+  { name: 'Birthday Party Favor Pack', category: 'Party Favors', description: 'Amazing favor boxes for guests at birthday parties.', price: 229, emoji: '🎁' },
+  { name: 'Heart Shaped Confetti', category: 'Party Favors', description: 'Romantic confetti for anniversary or birthday table scatter.', price: 149, emoji: '❤️' },
+  { name: 'Luxury Gift Wrap Set', category: 'Gift Wrap', description: 'Premium wrapping paper and ribbons for birthday and anniversary gifts.', price: 499, emoji: '🎀' },
+  { name: 'Anniversary Card Set', category: 'Stationery', description: 'Set of elegant anniversary cards for special messages.', price: 299, emoji: '✉️' },
+  { name: 'Birthday Cake Topper', category: 'Cake Accessories', description: 'Stylish cake topper for birthday celebrations.', price: 259, emoji: '🍰' },
+  { name: 'Sparkling Table Garland', category: 'Lighting', description: 'Twinkling lights for birthday and anniversary decor.', price: 399, emoji: '✨' }
 ];
 
 function initializeDatabase() {
@@ -85,22 +98,30 @@ function initializeDatabase() {
 }
 
 function seedProductsIfNeeded() {
-  db.get('SELECT COUNT(*) AS count FROM products', (err, row) => {
+  db.all('SELECT name FROM products', (err, rows) => {
     if (err) {
       console.error('Error checking products table:', err.message);
       return;
     }
 
-    if (!row || row.count > 0) {
+    const existingNames = new Set(rows.map((row) => row.name));
+    const missingProducts = productsSeed.filter((product) => !existingNames.has(product.name));
+
+    if (!missingProducts.length) {
       return;
     }
 
     const insert = db.prepare('INSERT INTO products (name, category, description, price, emoji) VALUES (?, ?, ?, ?, ?)');
-    productsSeed.forEach((product) => {
+    missingProducts.forEach((product) => {
       insert.run(product.name, product.category, product.description, product.price, product.emoji);
     });
-    insert.finalize();
-    console.log('Seeded products into database.');
+    insert.finalize((finalizeErr) => {
+      if (finalizeErr) {
+        console.error('Error seeding products:', finalizeErr.message);
+        return;
+      }
+      console.log(`Seeded ${missingProducts.length} missing products into database.`);
+    });
   });
 }
 
