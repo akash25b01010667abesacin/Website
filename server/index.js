@@ -269,16 +269,28 @@ app.use((req, res) => {
   res.status(404).sendFile(path.join(staticRoot, 'index.html'));
 });
 
-const server = app.listen(port, () => {
-  console.log(`Server started on http://localhost:${port}`);
-});
+const availablePorts = [4000, 4001, 4002];
 
-server.on('error', (err) => {
-  if (err.code === 'EADDRINUSE' && port === 4000) {
-    app.listen(4001, () => {
-      console.log('Port 4000 is in use. Server started on http://localhost:4001');
-    });
-    return;
+function startServer(index = 0) {
+  if (index >= availablePorts.length) {
+    console.error('Unable to start server: all configured ports are occupied.');
+    process.exit(1);
   }
-  console.error('Server error:', err);
-});
+
+  const currentPort = availablePorts[index];
+  const server = app.listen(currentPort, () => {
+    console.log(`Server started on http://localhost:${currentPort}`);
+  });
+
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.warn(`Port ${currentPort} is already in use. Trying next port...`);
+      startServer(index + 1);
+      return;
+    }
+    console.error('Server error:', err);
+    process.exit(1);
+  });
+}
+
+startServer();
