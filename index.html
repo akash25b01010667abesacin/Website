@@ -22,11 +22,12 @@
         <a href="#" class="logo">Chourasia <span>Commerce</span></a>
         <div class="search-bar">
           <span>🔍</span>
-          <input type="text" placeholder="Search for products, brands and more" />
+          <input id="search-input" type="text" placeholder="Search for products, brands and more" />
         </div>
-        <div class="nav-actions">
-          <a href="#">Login</a>
-          <a href="#offers">Offers</a>
+        <div class="nav-actions" id="nav-actions">
+          <a href="login.html" id="nav-login">Login</a>
+          <a href="register.html" id="nav-register">Register</a>
+          <a href="orders.html" id="nav-orders">Orders</a>
           <a href="#cart">Cart <span id="cart-count">0</span></a>
         </div>
       </nav>
@@ -55,7 +56,7 @@
           <p class="card-tag">Hot deal</p>
           <h3>Birthday Deluxe Kit</h3>
           <p>Get balloons, ribbons, and a photo backdrop for your next celebration.</p>
-          <button class="btn btn-primary btn-full" data-product="Birthday Deluxe Kit">Add to cart</button>
+          <button id="hero-cta" class="btn btn-primary btn-full">Add first deal to cart</button>
         </div>
       </section>
 
@@ -64,14 +65,7 @@
           <h2>Popular decor categories</h2>
           <a href="#">See all</a>
         </div>
-        <div class="category-grid">
-          <button class="category-pill active" data-category="Balloons">Balloons</button>
-          <button class="category-pill" data-category="Backdrops">Backdrops</button>
-          <button class="category-pill" data-category="Candles">Candles</button>
-          <button class="category-pill" data-category="Banners">Banners</button>
-          <button class="category-pill" data-category="Table Decor">Table Decor</button>
-          <button class="category-pill" data-category="Anniversary Sets">Anniversary Sets</button>
-        </div>
+        <div class="category-grid"></div>
         <div id="category-showcase" class="showcase-grid"></div>
       </section>
 
@@ -81,41 +75,24 @@
             <h2>Wholesale decor collection</h2>
             <a href="#">View more</a>
           </div>
-          <div class="product-grid">
-            <article class="product-card">
-              <div class="product-visual purple">🎈</div>
-              <h3>Birthday Balloon Pack</h3>
-              <p>Premium balloons in pastel and metallic shades for party walls and ceilings.</p>
-              <div class="product-footer">
-                <strong>Wholesale ₹899</strong>
-                <button class="btn btn-primary" data-product="Balloon Pack">Add to cart</button>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-visual blue">📸</div>
-              <h3>Backdrop Kit</h3>
-              <p>Stylish photo booth backdrop with flowers, lights, and a matching frame.</p>
-              <div class="product-footer">
-                <strong>Wholesale ₹1,499</strong>
-                <button class="btn btn-primary" data-product="Backdrop Kit">Add to cart</button>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-visual yellow">🕯️</div>
-              <h3>Anniversary Candle Set</h3>
-              <p>Elegant candles and fairy lights for romantic dining and celebration corners.</p>
-              <div class="product-footer">
-                <strong>Wholesale ₹749</strong>
-                <button class="btn btn-primary" data-product="Candle Set">Add to cart</button>
-              </div>
-            </article>
-          </div>
+          <div id="products-grid" class="product-grid"></div>
         </div>
       </section>
 
       <section class="section container" id="cart">
+        <div class="section-heading">
+          <h2>Your shopping cart</h2>
+          <span id="cart-summary-text">0 items • Total ₹0</span>
+        </div>
+        <div id="cart-items" class="cart-items">
+          <p>Your cart is empty. Add items from the offers above.</p>
+        </div>
+        <div class="cart-actions">
+          <button id="place-order" class="btn btn-primary" disabled>Place order</button>
+        </div>
+      </section>
+
+      <section class="section container" id="about">
         <div class="section-heading">
           <h2>Why party planners choose us</h2>
           <a href="#">Learn more</a>

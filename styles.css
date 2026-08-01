@@ -321,6 +321,140 @@ h1 {
   margin-bottom: 1rem;
 }
 
+.cart-items {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.cart-item-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.cart-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.auth-shell {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 5rem);
+}
+
+.auth-card {
+  width: min(440px, 100%);
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.auth-card h1 {
+  margin-bottom: 0.5rem;
+}
+
+.auth-card p {
+  color: var(--muted);
+  margin-bottom: 1.6rem;
+}
+
+.auth-card label {
+  display: block;
+  margin: 0.9rem 0 0.3rem;
+  font-weight: 600;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.form-message,
+.form-note {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.form-note a {
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.order-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.order-meta {
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.order-items {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.order-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid #f3f4f6;
+}
+
+.order-item:first-child {
+  border-top: none;
+}
+
+.order-item-emoji {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #eff6ff;
+  font-size: 1.3rem;
+}
+
+button.selected {
+  border-color: var(--brand);
+  background: var(--brand);
+  color: white;
+}
+
 .footer {
   background: #0f172a;
   color: #cbd5e1;

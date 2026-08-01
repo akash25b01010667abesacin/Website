@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Orders | Chourasia Commerce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav-shell container">
+        <a href="index.html" class="logo">Chourasia <span>Commerce</span></a>
+        <div class="nav-actions">
+          <a href="login.html">Login</a>
+          <a href="register.html">Register</a>
+          <a href="index.html">Shop</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="section container">
+      <div class="section-heading">
+        <h1>Your order history</h1>
+        <a href="index.html">Continue shopping</a>
+      </div>
+      <div id="orders-list" class="orders-list">
+        <p>Loading your orders...</p>
+      </div>
+      <p class="form-message" id="orders-message"></p>
+    </main>
+
+    <script src="orders.js"></script>
+  </body>
+</html>
