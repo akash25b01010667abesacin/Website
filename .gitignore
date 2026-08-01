@@ -1,0 +1,10 @@
+# Ignore local node_modules in backend
+server/node_modules/
+
+# Ignore local database file created by the app
+server/database.db
+
+# Ignore OS and editor files
+.DS_Store
+Thumbs.db
+*.log
